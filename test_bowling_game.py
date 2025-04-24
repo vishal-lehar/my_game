@@ -63,7 +63,7 @@ class TestBowlingGame(unittest.TestCase):
             self.game.roll(-1)
             
     def test_example_score_card(self):
-        print(f"Test sample score card given in the problem.")
+        print(f"Test sample score card given in the problem")
         rolls = [1, 4, 4, 5, 6, 4, 5, 5, 10, 0, 1, 7, 3, 6, 4, 10, 2, 8, 6]
         for roll in rolls:
             self.game.roll(roll)

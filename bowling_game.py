@@ -1,7 +1,6 @@
 class BowlingGame:
     def __init__(self):
         self.rolls = []
-        self.current_roll = 0
     
     def roll(self, pins):
         if pins < 0 or pins > 10:
