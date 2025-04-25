@@ -68,6 +68,41 @@ class TestBowlingGame(unittest.TestCase):
         for roll in rolls:
             self.game.roll(roll)
         self.assertEqual(self.game.score(), 133)
+        
+    def test_spare_and_strike(self):
+        print("Test for a spare followed by a strike")
+        self.roll_spare()
+        self.roll_strike()
+        self.roll_many(16, 0)
+        self.assertEqual(30, self.game.score())
+
+    def test_two_spares(self):
+        print("Test for two consecutive spares")
+        self.roll_spare()
+        self.roll_spare()
+        self.game.roll(3)
+        self.roll_many(15, 0)
+        self.assertEqual(31, self.game.score())
+
+    def test_two_strikes(self):
+        print("Test for two consecutive strikes")
+        self.roll_strike()
+        self.roll_strike()
+        self.game.roll(3)
+        self.game.roll(4)
+        self.roll_many(14, 0)
+        self.assertEqual(47, self.game.score())
+
+    def test_multiple_spares_and_strikes(self):
+        print("Test for multiple spares and strikes")
+        self.roll_strike()
+        self.roll_spare()
+        self.roll_strike()
+        self.roll_spare()
+        self.game.roll(3)
+        self.roll_many(10, 0)
+        self.game.roll(0)
+        self.assertEqual(76, self.game.score())
     
 if __name__ == "__main__":
     unittest.main()
